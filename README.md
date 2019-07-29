@@ -14,7 +14,7 @@ Half-sine fourier series messing about. -a
     
     yi=[]
     s=0 
-    ytotal= [0.0]*100 #this will be used to find the total sum 
+    ytotal= [0.0]*len(x) #this will be used to find the total sum. x, yi, and ytotal must have the same no. of indices to be plotted.
     for i in range(1,1000,2): #a step of 2 is used to replace the increments from 1-3-5 for the fourier series
     
         
