@@ -11,20 +11,17 @@ Half-sine fourier series messing about. -a
     x = np.arange(0,1,0.01) #Defining the range of x values from 0 to 1 with step 0.01
 
 
-    alt= 0
+    
     yi=[]
     s=0 
     ytotal= [0.0]*100 #this will be used to find the total sum 
     for i in range(1,1000,2): #a step of 2 is used to replace the increments from 1-3-5 for the fourier series
     
-        if s%2!=0:
-            alt=-1
-        else:
-            alt=1 
+        
         
         #alternating + or - for the beginning of our series
         
-        yi.append( alt * np.sin(i*np.pi*x) / (i**2) * A) 
+        yi.append( ((-1)**s)* np.sin(i*np.pi*x) / (i**2) * A) 
         #appends 100 values for each iteration of i - yi is a multidimensional array
    
     
