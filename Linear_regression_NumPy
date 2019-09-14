@@ -7,6 +7,10 @@ y = 2*xvals
 For a fantastic reason that I have yet to grasp - Python will not do it like this. This is why arrays are so useful; 
 
 
+P.S, If you would like to use this (i dont quite know why you would) data is best fed through as x first column, y second, x error 3rd and y error 4th.
+error analysis coming soon to theatres near you!
+
+
 import numpy as np
 import scipy as scp
 import matplotlib.pyplot as plt
@@ -22,7 +26,7 @@ def genfromtxt(file):
     return(x,y,xerr,yerr)
     
     
-array = genfromtxt('LargeDataSet.txt')
+array = genfromtxt('LargeDataSet.txt') 
 
 def calc(array):
     x = array[0]
