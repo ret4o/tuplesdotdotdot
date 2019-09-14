@@ -1,0 +1,43 @@
+Trying to make use of multidimensional arrays:
+The main difficulty with lists on Python is its total reluctance to be transformed numerically in anyway. Heres an example:
+
+xvals = [1,2,3]
+y = 2*xvals
+
+For a fantastic reason that I have yet to grasp - Python will not do it like this. This is why arrays are so useful; 
+
+
+import numpy as np
+import scipy as scp
+import matplotlib.pyplot as plt
+
+
+def genfromtxt(file):
+    array_file = np.genfromtxt(file,delimiter='\t') # the delimiter can be whatever you like - but tab is most appropriate.
+    x = array_file[:,0] # this reads from the zeroth data file on the zeroth column to the last data file on the zeroth column. I still struggle with this concept but I'm definitely improving.
+    y = array_file[:,1]
+    xerr = array_file[:,2]
+    yerr = array_file[:,3]
+    
+    return(x,y,xerr,yerr)
+    
+    
+array = genfromtxt('LargeDataSet.txt')
+
+def calc(array):
+    x = array[0]
+    y = array[1]
+    xerr = array[2]
+    yerr = array[3]
+    plt.plot(x,y)
+    p1 = scp.polyfit(x,y,1)
+    plt.plot(x,scp.polyval(p1,x))
+    
+
+
+calc(array)
+
+
+
+
+
